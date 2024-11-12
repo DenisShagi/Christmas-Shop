@@ -1,0 +1,7 @@
+@mixin heading-style($font-size, $font-weight, $line-height, $letter-spacing) {
+    @extend %font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+  }

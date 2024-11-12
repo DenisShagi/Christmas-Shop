@@ -1,0 +1,32 @@
+// Правила для шрифтов
+
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts//Montserrat-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  src: url("../fonts/Montserrat-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Allura", cursive;
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/Allura-Regular.ttf") format("truetype");
+}
+
+// Переменная для font-family
+$font-family-primary: "Roboto", sans-serif;
+
+// Плейсхолдер для font-family
+%font-family {
+  font-family: $font-family-primary;
+}
