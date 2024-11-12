@@ -3,10 +3,47 @@
   border-radius: 20px;
   background-color: $color-dark;
   color: $color-static-white;
-  transition: background-color, color, .3s ease-in-out;
+  transition: background-color, color, 0.3s ease-in-out;
   &:hover {
     background-color: $color-static-white;
     color: $color-dark;
-    transition: background-color, color, .3s ease-in-out;
+    transition: background-color, color, 0.3s ease-in-out;
+  }
+}
+
+.btn-arrow {
+  border: 1px solid $color-static-white;
+  width: 56px;
+  height: 56px;
+  border-radius: 20px;
+  padding: 16px;
+  transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out;
+
+  & svg {
+    stroke: $color-static-white;
+  }
+  &:hover {
+    background-color: $color-static-white;
+
+    svg {
+      stroke: $color-primary;
+      transition: stroke 0.4s ease-in-out;
+    }
+  }
+
+  &__disabled {
+    border: 1px solid $color-static-white-40;
+    cursor: not-allowed;
+
+    & svg {
+      stroke: $color-static-white-40;
+    }
+    &:hover {
+      background-color: transparent;
+
+      & svg {
+        stroke: $color-static-white-40;
+      }
+    }
   }
 }

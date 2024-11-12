@@ -13,9 +13,10 @@
 @import "components/buttons";
 
 
-@import "layout/footer", 
-        "layout/header", 
-        "layout/navigation";
+@import "layout/header", 
+        "layout/navigation",
+        "layout/slider", 
+        "layout/footer"; 
 
 @import "sections/hero",
         "sections/about";

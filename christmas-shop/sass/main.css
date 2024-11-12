@@ -665,6 +665,38 @@ section {
   transition: background-color, color, 0.3s ease-in-out;
 }
 
+.btn-arrow {
+  border: 1px solid #FFFFFF;
+  width: 56px;
+  height: 56px;
+  border-radius: 20px;
+  padding: 16px;
+  transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out;
+}
+.btn-arrow svg {
+  stroke: #FFFFFF;
+}
+.btn-arrow:hover {
+  background-color: #FFFFFF;
+}
+.btn-arrow:hover svg {
+  stroke: #FF4646;
+  transition: stroke 0.4s ease-in-out;
+}
+.btn-arrow__disabled {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  cursor: not-allowed;
+}
+.btn-arrow__disabled svg {
+  stroke: rgba(255, 255, 255, 0.4);
+}
+.btn-arrow__disabled:hover {
+  background-color: transparent;
+}
+.btn-arrow__disabled:hover svg {
+  stroke: rgba(255, 255, 255, 0.4);
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -695,6 +727,56 @@ section {
   color: #FF4646;
   background-color: rgba(255, 70, 70, 0.1);
   transition: color, background-color, 0.3s ease-in-out;
+}
+
+.slider {
+  background-image: url("../image/bg-snow.png");
+  background-color: #FF4646;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center, center;
+  row-gap: 20px;
+}
+.slider-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 12px;
+  color: #FFFFFF;
+}
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px 0 0 82px;
+  color: #FFFFFF;
+  row-gap: 20px;
+}
+.slider-track {
+  display: flex;
+  gap: 20px;
+}
+.slider-track__item {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.slider-track__image {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+}
+.slider-navigation {
+  display: flex;
+  max-width: 1440px;
+  align-items: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  justify-content: end;
+  padding-right: 82px;
 }
 
 .hero {
