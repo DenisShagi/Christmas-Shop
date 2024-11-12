@@ -6,7 +6,7 @@ h1 {
   @include heading-style(
     $font-size: 32px,
     $line-height: 150%,
-    $letter-spacing: .18rem
+    $letter-spacing: 0.35rem
   );
   @extend %text-uppercase;
 }
@@ -15,7 +15,7 @@ h2 {
   @include heading-style(
     $font-size: 24px,
     $line-height: 152%,
-    $letter-spacing: .16rem
+    $letter-spacing: .24rem
   );
   @extend %text-uppercase;
 }
@@ -53,7 +53,7 @@ p {
     $font-size: 16px,
     $font-weight: 400,
     $line-height: 148%,
-    $letter-spacing: .1rem
+    $letter-spacing: 0rem
   );
 }
 
