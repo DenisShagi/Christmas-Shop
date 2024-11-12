@@ -1,0 +1,12 @@
+.btn {
+  padding: 20px 32px;
+  border-radius: 20px;
+  background-color: $color-dark;
+  color: $color-static-white;
+  transition: background-color, color, .3s ease-in-out;
+  &:hover {
+    background-color: $color-static-white;
+    color: $color-dark;
+    transition: background-color, color, .3s ease-in-out;
+  }
+}
