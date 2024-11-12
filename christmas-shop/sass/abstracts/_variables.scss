@@ -1,0 +1,25 @@
+// Переменная для font-family
+
+$font-family-primary: "Montserrat", sans-serif;
+$font-family-special: "Allura", cursive;
+
+// Основные цвета
+$color-primary: #FF4646;          // Primary - основной акцентный цвет
+$color-primary-10: rgba(#FF4646, 0.1);  // Primary 10 - основной акцентный цвет с прозрачностью 10%
+
+// Темные цвета
+$color-dark: #181C29;            // Dark - темный цвет для текста и фона
+
+// Белые цвета
+$color-static-white: #FFFFFF;     // Static White - чистый белый цвет
+$color-static-white-40: rgba(#FFFFFF, 0.4);  // Static White 40 - белый с прозрачностью 40%
+$color-static-white-20: rgba(#FFFFFF, 0.2);  // Static White 20 - белый с прозрачностью 20%
+
+// Цвета тегов
+$color-tag-purple: #4361FF;       // Tag Purple - цвет для фиолетового тега
+$color-tag-pink: #FF43F7;         // Tag Pink - цвет для розового тега
+$color-tag-green: #06A44F;        // Tag Green - цвет для зеленого тега
+
+// Фоновые цвета
+$color-content-background: #ECF3F8; // Content Background - цвет фона
+$color-overlay: rgba(#181C29, 0.8); // Overlay - цвет наложения с прозрачностью 80%

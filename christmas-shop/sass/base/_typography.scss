@@ -23,10 +23,82 @@
   src: url("../fonts/Allura-Regular.ttf") format("truetype");
 }
 
-// Переменная для font-family
-$font-family-primary: "Roboto", sans-serif;
+h1 {
+  @include heading-style(
+    $font-size: 32px,
+    $line-height: 150%,
+    $letter-spacing: 18%
+  );
+  @extend %text-uppercase;
+}
 
-// Плейсхолдер для font-family
-%font-family {
-  font-family: $font-family-primary;
+h2 {
+  @include heading-style(
+    $font-size: 24px,
+    $line-height: 152%,
+    $letter-spacing: 16%
+  );
+  @extend %text-uppercase;
+}
+
+h3 {
+  @include heading-style(
+    $font-size: 16px,
+    $line-height: 152%,
+    $letter-spacing: 8%
+  );
+  @extend %text-uppercase;
+}
+
+h4 {
+  @include heading-style(
+    $font-size: 12px,
+    $line-height: 130%,
+    $letter-spacing: 5%
+  );
+  @extend %text-uppercase;
+}
+
+p {
+  @include heading-style(
+    $font-size: 16px,
+    $font-weight: 400,
+    $line-height: 148%,
+    $letter-spacing: 10%
+  );
+}
+
+.action-large {
+  @include heading-style(
+    $font-size: 24px,
+    $line-height: 152%,
+    $letter-spacing: 5%
+  );
+  @extend %text-uppercase;
+}
+
+.action-small {
+  @include heading-style(
+    $font-size: 12px,
+    $line-height: 130%,
+    $letter-spacing: 5%
+  );
+  @extend %text-uppercase;
+}
+
+.caption {
+  @include heading-style(
+    $font-size: 24px,
+    $font-weight: 400,
+    $line-height: 100%,
+    $letter-spacing: 5%
+  );
+  @extend %font-family-special;
+}
+
+.slider-text {
+    @extend %text-uppercase;
+    @extend %font-family-primary;
+    font-size: 80px;
+    font-weight: 600;
 }

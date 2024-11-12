@@ -1,13 +1,18 @@
-@import 'base/normalize',
-        'base/typography',
-        'base/base';
+@import "base/normalize";
 
-@import 'abstracts/mixins',
-        'abstracts/placeholders',
-        'abstracts/variable';
 
-@import 'components/buttons';
+@import "abstracts/variables", 
+        "abstracts/mixins", 
+        "abstracts/placeholders";
 
-@import 'layout/footer',
-        'layout/header',
-        'layout/navigation';
+
+@import "base/typography",  
+        "base/base";
+
+
+@import "components/buttons";
+
+
+@import "layout/footer", 
+        "layout/header", 
+        "layout/navigation";
