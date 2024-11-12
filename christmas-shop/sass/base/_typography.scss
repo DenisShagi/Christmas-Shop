@@ -5,7 +5,7 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  src: url("../fonts//Montserrat-Regular.ttf") format("truetype");
+  src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
 }
 
 @font-face {
@@ -27,7 +27,7 @@ h1 {
   @include heading-style(
     $font-size: 32px,
     $line-height: 150%,
-    $letter-spacing: 18%
+    $letter-spacing: .18rem
   );
   @extend %text-uppercase;
 }
@@ -36,7 +36,7 @@ h2 {
   @include heading-style(
     $font-size: 24px,
     $line-height: 152%,
-    $letter-spacing: 16%
+    $letter-spacing: .16rem
   );
   @extend %text-uppercase;
 }
@@ -45,7 +45,7 @@ h3 {
   @include heading-style(
     $font-size: 16px,
     $line-height: 152%,
-    $letter-spacing: 8%
+    $letter-spacing: .08rem
   );
   @extend %text-uppercase;
 }
@@ -54,9 +54,19 @@ h4 {
   @include heading-style(
     $font-size: 12px,
     $line-height: 130%,
-    $letter-spacing: 5%
+    $letter-spacing: .05rem
   );
   @extend %text-uppercase;
+}
+
+.header__text {
+  @include heading-style(
+    $font-size: 12px,
+    $line-height: 130%,
+    $letter-spacing: .05rem
+  );
+  @extend %text-uppercase;
+  color: $color-dark;
 }
 
 p {
@@ -64,7 +74,7 @@ p {
     $font-size: 16px,
     $font-weight: 400,
     $line-height: 148%,
-    $letter-spacing: 10%
+    $letter-spacing: .1rem
   );
 }
 
@@ -72,7 +82,7 @@ p {
   @include heading-style(
     $font-size: 24px,
     $line-height: 152%,
-    $letter-spacing: 5%
+    $letter-spacing: .05rem
   );
   @extend %text-uppercase;
 }
@@ -81,7 +91,7 @@ p {
   @include heading-style(
     $font-size: 12px,
     $line-height: 130%,
-    $letter-spacing: 5%
+    $letter-spacing: .05rem
   );
   @extend %text-uppercase;
 }
@@ -91,14 +101,14 @@ p {
     $font-size: 24px,
     $font-weight: 400,
     $line-height: 100%,
-    $letter-spacing: 5%
+    $letter-spacing: .05rem
   );
   @extend %font-family-special;
 }
 
 .slider-text {
-    @extend %text-uppercase;
-    @extend %font-family-primary;
-    font-size: 80px;
-    font-weight: 600;
+  @extend %text-uppercase;
+  @extend %font-family-primary;
+  font-size: 80px;
+  font-weight: 600;
 }
