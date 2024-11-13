@@ -952,6 +952,7 @@ section {
 .decoration-list {
   display: flex;
   justify-content: center;
+  max-width: 1440px;
   flex-wrap: wrap;
   gap: 12px;
 }
