@@ -5,3 +5,12 @@
   line-height: $line-height;
   letter-spacing: $letter-spacing;
 }
+
+@mixin btn-text($font-size: 12px, $font-weight: 600, $line-height: 130%, $letter-spacing: 0.05rem){
+  @extend %font-family-primary;
+  @extend %text-uppercase;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
