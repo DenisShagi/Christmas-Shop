@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Шаг 1: Клонирование репозитория
+      # Шаг 1: Клонируем репозиторий
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -35,5 +35,5 @@ jobs:
       - name: Commit and Push
         run: |
           git add .
-          git commit -m "Deploy to GitHub Pages"
-          git push
+          git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
+          git push --force
