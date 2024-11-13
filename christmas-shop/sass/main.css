@@ -711,6 +711,22 @@ section {
   stroke: rgba(255, 255, 255, 0.4);
 }
 
+.tab {
+  display: inline-block;
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: 12px;
+  transition: background-color 0.3s ease-in-out;
+}
+.tab:hover {
+  transition: background-color 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.tab__active {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -735,6 +751,13 @@ section {
 .header-navigation__link {
   padding: 12px 20px;
   transition: color, background-color, 0.3s ease-in-out;
+}
+.header-navigation__link__active {
+  border-radius: 12px;
+  color: #FF4646;
+  background-color: rgba(255, 70, 70, 0.1);
+  transition: color, background-color, 0.3s ease-in-out;
+  cursor: not-allowed;
 }
 .header-navigation__link:hover {
   border-radius: 12px;
@@ -1004,4 +1027,28 @@ section {
   background-color: rgba(255, 255, 255, 0.4);
   right: 0;
   bottom: 16px;
+}
+
+.gifts {
+  background-image: url("../image/bg-garland.png");
+  background-color: #FF4646;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+.gifts-title {
+  color: #FFFFFF;
+  max-width: 400px;
+  text-align: center;
+}
+.gifts-pagination {
+  margin-top: 4px;
+  display: flex;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
 }/*# sourceMappingURL=main.css.map */
