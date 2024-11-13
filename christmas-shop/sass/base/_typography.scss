@@ -1,6 +1,6 @@
 // Правила для шрифтов
-@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
 
 h1 {
   @include heading-style(
@@ -15,7 +15,7 @@ h2 {
   @include heading-style(
     $font-size: 24px,
     $line-height: 152%,
-    $letter-spacing: .24rem
+    $letter-spacing: 0.24rem
   );
   @extend %text-uppercase;
 }
@@ -24,7 +24,7 @@ h3 {
   @include heading-style(
     $font-size: 16px,
     $line-height: 152%,
-    $letter-spacing: .08rem
+    $letter-spacing: 0.08rem
   );
   @extend %text-uppercase;
 }
@@ -33,16 +33,26 @@ h4 {
   @include heading-style(
     $font-size: 12px,
     $line-height: 130%,
-    $letter-spacing: .05rem
+    $letter-spacing: 0.05rem
   );
   @extend %text-uppercase;
+
+  &.work {
+    color: $color-tag-purple;
+  }
+  &.health {
+    color: $color-tag-green;
+  }
+  &.harmony {
+    color: $color-tag-pink;
+  }
 }
 
 .header__text {
   @include heading-style(
     $font-size: 12px,
     $line-height: 130%,
-    $letter-spacing: .05rem
+    $letter-spacing: 0.05rem
   );
   @extend %text-uppercase;
   color: $color-dark;
@@ -61,7 +71,7 @@ p {
   @include heading-style(
     $font-size: 24px,
     $line-height: 152%,
-    $letter-spacing: .05rem
+    $letter-spacing: 0.05rem
   );
   @extend %text-uppercase;
 }
@@ -70,7 +80,7 @@ p {
   @include heading-style(
     $font-size: 12px,
     $line-height: 130%,
-    $letter-spacing: .05rem
+    $letter-spacing: 0.05rem
   );
   @extend %text-uppercase;
 }
@@ -80,7 +90,7 @@ p {
     $font-size: 24px,
     $font-weight: 400,
     $line-height: 100%,
-    $letter-spacing: .05rem
+    $letter-spacing: 0.05rem
   );
   @extend %font-family-special;
 }

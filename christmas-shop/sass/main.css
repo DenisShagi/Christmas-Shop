@@ -606,6 +606,15 @@ h4 {
   line-height: 130%;
   letter-spacing: 0.05rem;
 }
+h4.work {
+  color: #4361FF;
+}
+h4.health {
+  color: #06A44F;
+}
+h4.harmony {
+  color: #FF43F7;
+}
 
 .header__text {
   font-size: 12px;
@@ -829,4 +838,59 @@ section {
 }
 .about-container__image {
   border-radius: 20px;
+}
+
+.best-gifts {
+  background-image: url("../image/bg-snow.png");
+  background-color: #FF4646;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center, center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  row-gap: 20px;
+}
+.best-gifts-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  color: #FFFFFF;
+}
+
+.decoration-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.decoration-item {
+  max-width: 310px;
+}
+.decoration-item-card {
+  border-radius: 20px;
+  background-color: #ECF3F8;
+  cursor: pointer;
+}
+.decoration-item-card:hover h3 {
+  color: #FF4646;
+  transition: color 0.3s ease-in-out;
+}
+.decoration-item-card-container {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+}
+.decoration-item-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  row-gap: 8px;
+}
+.decoration-item-card-content h3 {
+  height: 48px;
+  transition: color 0.3s ease-in-out;
+  text-align: start;
 }/*# sourceMappingURL=main.css.map */
