@@ -567,7 +567,7 @@ template {
   display: none;
 }
 
-.slider-text, .caption, .action-small, .action-large, p, .header__text, h4, h3, h2, h1 {
+.slider-text, .caption, .action-small, .action-large, p, .header__text, .btn-text, h4, h3, h2, h1 {
   font-family: "Montserrat", sans-serif;
 }
 
@@ -575,7 +575,7 @@ template {
   font-family: "Allura", cursive;
 }
 
-.slider-text, .action-small, .action-large, .header__text, h4, h3, h2, h1 {
+.slider-text, .action-small, .action-large, .header__text, .btn-text, h4, h3, h2, h1 {
   text-transform: uppercase;
 }
 
@@ -614,6 +614,13 @@ h4.health {
 }
 h4.harmony {
   color: #FF43F7;
+}
+
+.btn-text {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 130%;
+  letter-spacing: 0.05rem;
 }
 
 .header__text {
