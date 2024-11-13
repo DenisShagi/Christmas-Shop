@@ -1,0 +1,39 @@
+name: Deploy GitHub Pages
+
+# Настройка срабатывания Action
+on:
+  push:
+    branches:
+      - gh-pages # Action будет срабатывать при пуше в ветку gh-pages
+
+# Описание работы
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # Действие будет выполняться на Linux сервере
+
+    steps:
+      # Шаг 1: Клонирование репозитория
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Шаг 2: Копирование содержимого папки christmas-shop в корень
+      - name: Move files to root
+        run: |
+          mkdir temp
+          cp -r christmas-shop/* temp/
+          rm -rf *
+          mv temp/* .
+          rmdir temp
+
+      # Шаг 3: Настройка git для коммита
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      # Шаг 4: Коммит и пуш изменений
+      - name: Commit and Push
+        run: |
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+          git push
