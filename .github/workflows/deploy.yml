@@ -1,31 +1,31 @@
 name: Deploy GitHub Pages
 
-# Настройка срабатывания Action
 on:
   push:
     branches:
-      - gh-pages # Action будет срабатывать при пуше в ветку gh-pages
+      - gh-pages
 
-# Описание работы
 jobs:
   deploy:
-    runs-on: ubuntu-latest # Действие будет выполняться на Linux сервере
+    runs-on: ubuntu-latest
 
     steps:
       # Шаг 1: Клонирование репозитория
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Шаг 2: Копирование содержимого папки christmas-shop в корень
-      - name: Move files to root
+      # Шаг 2: Проверка наличия папки и перемещение файлов
+      - name: Copy files from 'christmas-shop'
         run: |
-          mkdir temp
-          cp -r christmas-shop/* temp/
-          rm -rf *
-          mv temp/* .
-          rmdir temp
+          if [ -d "christmas-shop" ]; then
+            cp -r christmas-shop/* .
+            rm -rf christmas-shop
+          else
+            echo "Directory 'christmas-shop' does not exist!"
+            exit 1
+          fi
 
-      # Шаг 3: Настройка git для коммита
+      # Шаг 3: Настройка Git
       - name: Configure Git
         run: |
           git config --global user.name "GitHub Actions"
