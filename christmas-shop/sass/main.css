@@ -662,6 +662,7 @@ section {
 }
 
 .btn {
+  max-width: 242px;
   padding: 20px 32px;
   border-radius: 20px;
   background-color: #181C29;
@@ -893,4 +894,55 @@ section {
   height: 48px;
   transition: color 0.3s ease-in-out;
   text-align: start;
+}
+
+.cta {
+  background-image: url("../image/bg-forest.png"), url("../image/bg-snow.png");
+  background-color: #FF4646;
+  background-repeat: no-repeat;
+  background-size: cover, cover;
+  background-position: center, center;
+  border-radius: 0px 0px 20px 20px;
+}
+.cta-container {
+  padding: 120px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 426px;
+}
+.cta-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 20px;
+  color: #FFFFFF;
+}
+
+.countdown-timer {
+  margin-top: 8px;
+  border-radius: 20px;
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.timer {
+  display: flex;
+  padding: 8px 12px;
+}
+.timer-item {
+  width: 80px;
+  text-align: center;
+  position: relative;
+}
+.timer-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.4);
+  right: 0;
+  bottom: 16px;
 }/*# sourceMappingURL=main.css.map */
