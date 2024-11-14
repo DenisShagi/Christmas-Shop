@@ -1026,11 +1026,12 @@ section {
 }
 @media screen and (max-width: 1439px) {
   .about-text {
-    padding: 60px 20px;
+    padding: 60px 60px;
   }
 }
 @media screen and (max-width: 767px) {
   .about-text {
+    padding: 60px 20px;
     max-width: 100%;
     text-align: left;
   }
