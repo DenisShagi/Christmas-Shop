@@ -674,16 +674,19 @@ section {
 
 .btn {
   max-width: 242px;
+  height: 56px;
   padding: 20px 32px;
   border-radius: 20px;
   background-color: #181C29;
   color: #FFFFFF;
   transition: background-color, color, 0.3s ease-in-out;
 }
-.btn:hover {
-  background-color: #FFFFFF;
-  color: #181C29;
-  transition: background-color, color, 0.3s ease-in-out;
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    background-color: #FFFFFF;
+    color: #181C29;
+    transition: background-color, color, 0.3s ease-in-out;
+  }
 }
 
 .btn-arrow {
@@ -697,12 +700,14 @@ section {
 .btn-arrow svg {
   stroke: #FFFFFF;
 }
-.btn-arrow:hover {
-  background-color: #FFFFFF;
-}
-.btn-arrow:hover svg {
-  stroke: #FF4646;
-  transition: stroke 0.4s ease-in-out;
+@media (hover: hover) and (pointer: fine) {
+  .btn-arrow:hover {
+    background-color: #FFFFFF;
+  }
+  .btn-arrow:hover svg {
+    stroke: #FF4646;
+    transition: stroke 0.4s ease-in-out;
+  }
 }
 .btn-arrow__disabled {
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -725,9 +730,11 @@ section {
   border-radius: 12px;
   transition: background-color 0.3s ease-in-out;
 }
-.tab:hover {
-  transition: background-color 0.3s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.2);
+@media (hover: hover) and (pointer: fine) {
+  .tab:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease-in-out;
+  }
 }
 .tab__active {
   background-color: rgba(255, 255, 255, 0.2);
@@ -845,6 +852,11 @@ section {
   color: #FFFFFF;
   row-gap: 20px;
 }
+@media screen and (max-width: 1439px) {
+  .slider-container {
+    padding: 20px 8px 0 8px;
+  }
+}
 .slider-track {
   display: flex;
   gap: 20px;
@@ -870,6 +882,11 @@ section {
   justify-content: end;
   padding-right: 82px;
 }
+@media screen and (max-width: 1439px) {
+  .slider-navigation {
+    padding-right: 0;
+  }
+}
 
 .footer {
   padding: 60px 0;
@@ -882,6 +899,12 @@ section {
   row-gap: 12px;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 1439px) {
+  .footer-container-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .footer-container__link {
   display: flex;
   flex-direction: column;
@@ -891,12 +914,20 @@ section {
   border-radius: 20px;
   background-color: #ECF3F8;
   width: 418px;
+  height: 204px;
   color: inherit;
   transition: color, 0.3s ease-in-out;
 }
-.footer-container__link:hover {
-  color: #FF4646;
-  transition: color, 0.3s ease-in-out;
+@media screen and (max-width: 1439px) {
+  .footer-container__link {
+    width: calc(100vw - 16px);
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .footer-container__link:hover {
+    color: #FF4646;
+    transition: color 0.3s ease-in-out;
+  }
 }
 .footer-info {
   display: flex;
@@ -913,17 +944,21 @@ section {
 .footer-info__link svg path {
   transition: stroke 0.3s ease-in-out;
 }
-.footer-info__link svg:hover path {
-  stroke: #FF4646;
-  transition: stroke 0.3s ease-in-out;
+@media (hover: hover) and (pointer: fine) {
+  .footer-info__link svg:hover path {
+    stroke: #FF4646;
+    transition: stroke 0.3s ease-in-out;
+  }
 }
 .footer-info a {
   color: inherit;
   transition: color 0.3s ease-in-out;
 }
-.footer-info a:hover {
-  color: #FF4646;
-  transition: color 0.3s ease-in-out;
+@media (hover: hover) and (pointer: fine) {
+  .footer-info a:hover {
+    color: #FF4646;
+    transition: color 0.3s ease-in-out;
+  }
 }
 
 .hero {
@@ -1028,6 +1063,11 @@ section {
   flex-wrap: wrap;
   gap: 12px;
 }
+@media screen and (max-width: 1439px) {
+  .decoration-list {
+    padding: 0 35px;
+  }
+}
 
 .decoration-item {
   max-width: 310px;
@@ -1037,9 +1077,11 @@ section {
   background-color: #ECF3F8;
   cursor: pointer;
 }
-.decoration-item-card:hover h3 {
-  color: #FF4646;
-  transition: color 0.3s ease-in-out;
+@media (hover: hover) and (pointer: fine) {
+  .decoration-item-card:hover h3 {
+    color: #FF4646;
+    transition: color 0.3s ease-in-out;
+  }
 }
 .decoration-item-card-container {
   background-color: #FFFFFF;
@@ -1054,8 +1096,13 @@ section {
 }
 .decoration-item-card-content h3 {
   height: 48px;
-  transition: color 0.3s ease-in-out;
   text-align: start;
+  color: inherit;
+}
+@media (hover: hover) and (pointer: fine) {
+  .decoration-item-card-content h3 {
+    transition: color 0.3s ease-in-out;
+  }
 }
 
 .cta {

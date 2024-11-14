@@ -24,6 +24,10 @@
   max-width: 1440px;
   flex-wrap: wrap;
   gap: 12px;
+
+  @media screen and (max-width: 1439px) {
+    padding: 0 35px;
+  }
 }
 
 .decoration-item {
@@ -34,13 +38,14 @@
     background-color: $color-content-background;
     cursor: pointer;
 
-    &:hover {
- 
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
         & h3 {
           color: $color-primary;
-          transition: color 0.3s ease-in-out; 
+          transition: color 0.3s ease-in-out;
         }
       }
+    }
 
     &-container {
       background-color: $color-static-white;
@@ -56,8 +61,12 @@
 
       & h3 {
         height: 48px;
-        transition: color 0.3s ease-in-out; 
         text-align: start;
+        color: inherit;
+
+        @media (hover: hover) and (pointer: fine) {
+          transition: color 0.3s ease-in-out;
+        }
       }
     }
   }

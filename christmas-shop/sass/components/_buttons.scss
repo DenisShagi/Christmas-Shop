@@ -1,14 +1,18 @@
 .btn {
   max-width: 242px;
+  height: 56px;
   padding: 20px 32px;
   border-radius: 20px;
   background-color: $color-dark;
   color: $color-static-white;
   transition: background-color, color, 0.3s ease-in-out;
-  &:hover {
-    background-color: $color-static-white;
-    color: $color-dark;
-    transition: background-color, color, 0.3s ease-in-out;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: $color-static-white;
+      color: $color-dark;
+      transition: background-color, color, 0.3s ease-in-out;
+    }
   }
 }
 
@@ -23,12 +27,15 @@
   & svg {
     stroke: $color-static-white;
   }
-  &:hover {
-    background-color: $color-static-white;
 
-    svg {
-      stroke: $color-primary;
-      transition: stroke 0.4s ease-in-out;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: $color-static-white;
+
+      svg {
+        stroke: $color-primary;
+        transition: stroke 0.4s ease-in-out;
+      }
     }
   }
 
@@ -39,6 +46,7 @@
     & svg {
       stroke: $color-static-white-40;
     }
+
     &:hover {
       background-color: transparent;
 
@@ -54,11 +62,13 @@
   color: $color-static-white;
   padding: 12px 20px;
   border-radius: 12px;
-  transition: background-color .3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 
-  &:hover {
-    transition: background-color .3s ease-in-out;
-    background-color: $color-static-white-20;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: $color-static-white-20;
+      transition: background-color 0.3s ease-in-out;
+    }
   }
 
   &__active {

@@ -22,6 +22,10 @@
     padding: 20px 0 0 82px;
     color: $color-static-white;
     row-gap: 20px;
+
+    @media screen and (max-width: 1439px) {
+      padding: 20px 8px 0 8px;
+    }
   }
 
   &-track {
@@ -48,5 +52,9 @@
     column-gap: 20px;
     justify-content: end;
     padding-right: 82px;
+
+    @media screen and (max-width: 1439px) {
+      padding-right: 0;
+    }
   }
 }
