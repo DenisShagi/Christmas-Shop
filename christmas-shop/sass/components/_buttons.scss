@@ -39,7 +39,7 @@
     }
   }
 
-  &__disabled {
+  &.disabled {
     border: 1px solid $color-static-white-40;
     cursor: not-allowed;
 

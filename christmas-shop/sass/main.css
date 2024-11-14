@@ -709,17 +709,17 @@ section {
     transition: stroke 0.4s ease-in-out;
   }
 }
-.btn-arrow__disabled {
+.btn-arrow.disabled {
   border: 1px solid rgba(255, 255, 255, 0.4);
   cursor: not-allowed;
 }
-.btn-arrow__disabled svg {
+.btn-arrow.disabled svg {
   stroke: rgba(255, 255, 255, 0.4);
 }
-.btn-arrow__disabled:hover {
+.btn-arrow.disabled:hover {
   background-color: transparent;
 }
-.btn-arrow__disabled:hover svg {
+.btn-arrow.disabled:hover svg {
   stroke: rgba(255, 255, 255, 0.4);
 }
 
@@ -901,6 +901,7 @@ section {
 }
 .slider-track {
   display: flex;
+  transition: transform 0.5s ease-in-out;
   gap: 20px;
 }
 .slider-track__item {

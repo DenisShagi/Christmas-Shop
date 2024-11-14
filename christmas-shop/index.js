@@ -65,3 +65,67 @@ window.onload = function () {
     }
   });
 };
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sliderContainer = document.querySelector(".slider-container");
+  const sliderTrack = document.querySelector(".slider-track");
+  const btnLeft = document.querySelector(".btn-arrow:first-of-type");
+  const btnRight = document.querySelector(".btn-arrow:last-of-type");
+
+  let totalWidth;
+  let visibleWidth;
+  let step;
+  let maxClicks;
+  let currentIndex = 0;
+  const edgePadding = 8;
+
+  function calculateSliderParams() {
+    totalWidth = sliderTrack.scrollWidth;
+    visibleWidth =
+      sliderContainer.offsetWidth -
+      parseInt(getComputedStyle(sliderContainer).paddingLeft); // Учитываем padding-left
+    maxClicks = window.innerWidth >= 768 ? 4 : 7; // Количество шагов
+    step = Math.ceil(
+      (totalWidth - visibleWidth + edgePadding) / (maxClicks - 1)
+    ); // Шаг прокрутки
+  }
+
+  // Обновление состояния кнопок
+  function updateButtons() {
+    btnLeft.classList.toggle("disabled", currentIndex === 0); // Добавляем/убираем класс
+    btnRight.classList.toggle("disabled", currentIndex === maxClicks - 1);
+  }
+
+  // Прокрутка слайдера
+  function scrollSlider(direction) {
+    if (direction === "left" && !btnLeft.classList.contains("disabled")) {
+      currentIndex--;
+    } else if (
+      direction === "right" &&
+      !btnRight.classList.contains("disabled")
+    ) {
+      currentIndex++;
+    }
+
+    const maxScroll = totalWidth - visibleWidth + edgePadding; // Максимальная прокрутка
+    const scrollAmount = Math.min(currentIndex * step, maxScroll);
+
+    sliderTrack.style.transform = `translateX(-${scrollAmount}px)`;
+    updateButtons();
+  }
+
+  // Обработчики событий кнопок
+  btnLeft.addEventListener("click", () => scrollSlider("left"));
+  btnRight.addEventListener("click", () => scrollSlider("right"));
+
+  // Обновление при изменении размера окна
+  window.addEventListener("resize", () => {
+    calculateSliderParams();
+    currentIndex = Math.min(currentIndex, maxClicks - 1); // Убедимся, что индекс не вышел за пределы
+    scrollSlider(); // Применяем прокрутку
+  });
+
+  // Инициализация
+  calculateSliderParams();
+  updateButtons();
+});

@@ -30,6 +30,7 @@
 
   &-track {
     display: flex;
+    transition: transform 0.5s ease-in-out;
     gap: 20px;
     &__item {
       display: flex;
