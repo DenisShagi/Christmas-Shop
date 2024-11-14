@@ -44,6 +44,16 @@
                 <span class="burger-menu__line"></span>
             </button>
         </div>
+
+        <nav class="burger-content">
+            <ul>
+                <li><a class="action-large" href="./gifts.html">GIFTS</a></li>
+                <li><a class="action-large" href="#about">ABOUT</a></li>
+                <li><a class="action-large" href="#best">BEST</a></li>
+                <li><a class="action-large" href="#contacts">CONTACTS</a></li>
+            </ul>
+        </nav>
+        
     </header>
 
     <main class="main">
@@ -92,7 +102,7 @@
                     </div>
                 </div>
                 <div class="slider-navigation">
-                    <button class="btn-arrow btn-arrow__disabled">
+                    <button class="btn-arrow disabled">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <clipPath id="clip3_658">
@@ -125,50 +135,7 @@
                 <h2>especially for you</h2>
             </div>
             <div class="decoration-list">
-                <article class="decoration-item">
-                    <figure class="decoration-item-card">
-                        <img src="./image/gift-for-work.png" class="decoration-item__image" alt="Glass ornament with gifts inside">
-                        <figcaption class="decoration-item-card-container">
-                            <header class="decoration-item-card-content">
-                                <h4 class="work">FOR WORK</h4>
-                                <h3>CONSOLE.LOG GURU</h3>
-                            </header>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="decoration-item">
-                    <figure class="decoration-item-card">
-                        <img src="./image/gift-for-health.png" class="decoration-item__image" alt="Glass ornament with gifts inside">
-                        <figcaption class="decoration-item-card-container">
-                            <header class="decoration-item-card-content">
-                                <h4 class="health">For health</h4>
-                                <h3>Hydration Bot</h3>
-                            </header>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="decoration-item">
-                    <figure class="decoration-item-card">
-                        <img src="./image/gift-for-work.png" class="decoration-item__image" alt="Glass ornament with gifts inside">
-                        <figcaption class="decoration-item-card-container">
-                            <header class="decoration-item-card-content">
-                                <h4 class="work">FOR WORK</h4>
-                                <h3>Merge Master</h3>
-                            </header>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="decoration-item">
-                    <figure class="decoration-item-card">
-                        <img src="./image/gift-for-harmony.png" class="decoration-item__image" alt="Glass ornament with gifts inside">
-                        <figcaption class="decoration-item-card-container">
-                            <header class="decoration-item-card-content">
-                                <h4 class="harmony">For harmony</h4>
-                                <h3>Spontaneous Coding Philosopher</h3>
-                            </header>
-                        </figcaption>
-                    </figure>
-                </article>
+                <!-- Карточки будут добавляться сюда через JavaScript -->
             </div>
         </section>
         <section class="cta">
@@ -580,5 +547,67 @@
             </a>
         </div>
     </footer>
+    
+<!-- Модальное окно -->
+<div class="modal-overlay">
+    <div class="modal">
+      <button class="modal-close">
+        <svg width="40.000000" height="40.000000" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <clipPath id="clip41_224">
+                    <rect id="closex1" rx="0.000000" width="39.000000" height="39.000000" transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0"/>
+                </clipPath>
+            </defs>
+            <g clip-path="url(#clip41_224)">
+                <path id="Vectorx2" d="M30 10L10 30" stroke="#181C29" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round" stroke-linecap="round"/>
+                <path id="Vectorx3" d="M10 10L30 30" stroke="#181C29" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round" stroke-linecap="round"/>
+            </g>
+        </svg>
+      </button>
+      <figure class="modal-content">
+        <img class="modal-image" src="" alt="Gift image">
+        <figcaption class="modal-figcaption">
+            <div class="modal-figcaption-container">
+                <h4 class="modal-category"></h4>
+                <h3 class="modal-title"></h3>
+                <p class="modal-description"></p>
+            </div>
+          <h4 class="modal-signature">Adds superpowers to:</h4>
+          <ul class="modal-superpowers">
+            <li>
+              <p class="superpower-name">Live:</p>
+              <span class="superpower-container">
+                <p class="superpower-value"></p>
+                <span class="superpower-icons"></span>
+              </span>
+            </li>
+            <li>
+              <p class="superpower-name">Create:</p>
+              <span class="superpower-container">
+                <p class="superpower-value"></p>
+                <span class="superpower-icons"></span>
+              </span>
+            </li>
+            <li>
+              <p class="superpower-name">Love:</p>
+              <span class="superpower-container">
+                <p class="superpower-value"></p>
+                <span class="superpower-icons"></span>
+              </span>
+            </li>
+            <li>
+              <p class="superpower-name">Dream:</p>
+              <span class="superpower-container">
+                <p class="superpower-value"></p>
+                <span class="superpower-icons"></span>
+              </span>
+            </li>
+          </ul>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+  
+    <script src="./index.js"></script>
 </body>
 </html>
