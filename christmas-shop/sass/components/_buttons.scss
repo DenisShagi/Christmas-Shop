@@ -1,0 +1,120 @@
+.btn {
+  max-width: 242px;
+  height: 56px;
+  padding: 20px 32px;
+  border-radius: 20px;
+  background-color: $color-dark;
+  color: $color-static-white;
+  transition: background-color, color, 0.3s ease-in-out;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: $color-static-white;
+      color: $color-dark;
+      transition: background-color, color, 0.3s ease-in-out;
+    }
+  }
+}
+
+.btn-arrow {
+  border: 1px solid $color-static-white;
+  width: 56px;
+  height: 56px;
+  border-radius: 20px;
+  padding: 16px;
+  transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out;
+
+  & svg {
+    stroke: $color-static-white;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: $color-static-white;
+
+      svg {
+        stroke: $color-primary;
+        transition: stroke 0.4s ease-in-out;
+      }
+    }
+  }
+
+  &.disabled {
+    border: 1px solid $color-static-white-40;
+    cursor: not-allowed;
+
+    & svg {
+      stroke: $color-static-white-40;
+    }
+
+    &:hover {
+      background-color: transparent;
+
+      & svg {
+        stroke: $color-static-white-40;
+      }
+    }
+  }
+}
+
+.tab {
+  display: inline-block;
+  color: $color-static-white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  transition: background-color 0.3s ease-in-out;
+
+  &.active {
+    background-color: $color-static-white-20;
+    cursor: not-allowed;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: $color-static-white-20;
+      transition: background-color 0.3s ease-in-out;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 12px 8px;
+  }
+}
+
+.up-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: $color-overlay;
+  color: $color-static-white;
+  border: none;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  z-index: 1000;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.up-button.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.up-button.hide {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .up-button {
+    display: none;
+  }
+}

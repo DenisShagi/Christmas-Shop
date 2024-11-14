@@ -1,0 +1,27 @@
+@import "base/normalize";
+
+
+@import "abstracts/variables", 
+        "abstracts/mixins", 
+        "abstracts/placeholders";
+
+
+@import "base/typography",  
+        "base/base";
+
+
+@import "components/buttons",
+        "components/burger",
+        "components/modal";
+
+
+@import "layout/header", 
+        "layout/navigation",
+        "layout/slider", 
+        "layout/footer"; 
+
+@import "sections/hero",
+        "sections/about",
+        "sections/bestGifts",
+        "sections/cta",
+        "sections/gifts";

@@ -1,0 +1,73 @@
+.best-gifts {
+  background-image: url("../image/bg-snow.png");
+  background-color: $color-primary;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center, center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  row-gap: 20px;
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    color: $color-static-white;
+  }
+}
+
+.decoration-list {
+  display: flex;
+  justify-content: center;
+  max-width: 1440px;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  @media screen and (max-width: 1439px) {
+    padding: 0 20px;
+  }
+}
+
+.decoration-item {
+  max-width: 310px;
+
+  &-card {
+    border-radius: 20px;
+    background-color: $color-content-background;
+    cursor: pointer;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        & h3 {
+          color: $color-primary;
+          transition: color 0.3s ease-in-out;
+        }
+      }
+    }
+
+    &-container {
+      background-color: $color-static-white;
+      border-radius: 20px;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      row-gap: 8px;
+
+      & h3 {
+        height: 48px;
+        text-align: start;
+        color: inherit;
+
+        @media (hover: hover) and (pointer: fine) {
+          transition: color 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+}

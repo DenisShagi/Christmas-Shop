@@ -1,0 +1,80 @@
+.burger-container {
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+}
+
+.burger-menu {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 8px;
+  align-items: center;
+  cursor: pointer;
+
+  &__line {
+    width: 20px;
+    height: 1px;
+    background-color: $color-dark;
+    transition: all 0.3s ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover .burger-menu__line:nth-child(1) {
+      transform: rotate(45deg) translateY(6px);
+    }
+    &:hover .burger-menu__line:nth-child(2) {
+      transform: rotate(-45deg) translateY(-6px);
+    }
+  }
+
+  &__active {
+    .burger-menu__line:nth-child(1) {
+      transform: rotate(45deg) translateY(6px);
+    }
+    .burger-menu__line:nth-child(2) {
+      transform: rotate(-45deg) translateY(-6px);
+    }
+  }
+}
+
+.burger-content {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 98;
+  background-color: $color-static-white;
+  margin-top: 64px;
+  transition: .4s ease-in-out;
+  & a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto 8px;
+    padding: 12px 20px;
+    color: $color-dark;
+    transition: color, .3s ease-in-out;
+    &.active {
+      color: $color-primary;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: $color-primary;
+        transition: color, .3s ease-in-out;
+      }
+
+    }
+
+  }
+}
+
+.burger-content.active {
+  left: 0;
+}

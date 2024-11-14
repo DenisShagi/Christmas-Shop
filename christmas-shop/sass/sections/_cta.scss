@@ -1,0 +1,63 @@
+.cta {
+  background-image: url("../image/bg-forest.png"), url("../image/bg-snow.png");
+  background-color: $color-primary;
+  background-repeat: no-repeat;
+  background-size: cover, cover;
+  background-position: center, center;
+  border-radius: 0px 0px 20px 20px;
+
+  &-container {
+    padding: 120px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 426px;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 20px;
+    color: $color-static-white;
+  }
+}
+
+.countdown-timer {
+  margin-top: 8px;
+  border-radius: 20px;
+  color: $color-static-white;
+  background-color: $color-static-white-40;
+}
+.timer {
+  display: flex;
+  padding: 8px 12px;
+
+  &-item {
+    width: 80px;
+    text-align: center;
+    position: relative;
+
+    &:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 20px;
+      background-color: $color-static-white-40;
+      right: 0;
+      bottom: 16px;
+    }
+  }
+}
+
+.question-mark {
+  display: inline;
+}
+
+@media screen and (max-width: 380px) {
+  .question-mark {
+    display: block;
+  }
+}
