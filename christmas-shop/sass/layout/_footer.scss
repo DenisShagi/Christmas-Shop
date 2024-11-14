@@ -8,6 +8,11 @@
       column-gap: 12px;
       row-gap: 12px;
       flex-wrap: wrap;
+
+      @media screen and (max-width: 1439px) {
+        flex-direction: column;
+        align-items: center;
+      }
     }
     &__link {
       display: flex;
@@ -18,12 +23,19 @@
       border-radius: 20px;
       background-color: $color-content-background;
       width: 418px;
+      height: 204px;
       color: inherit;
       transition: color, 0.3s ease-in-out;
 
-      &:hover {
-        color: $color-primary;
-        transition: color, 0.3s ease-in-out;
+      @media screen and (max-width: 1439px) {
+        width: calc(100vw - 16px);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: $color-primary;
+          transition: color 0.3s ease-in-out;
+        }
       }
     }
   }
@@ -45,10 +57,12 @@
         path {
           transition: stroke 0.3s ease-in-out;
         }
-        &:hover {
-          path {
-            stroke: $color-primary;
-            transition: stroke 0.3s ease-in-out;
+        @media (hover: hover) and (pointer: fine) {
+          &:hover {
+            path {
+              stroke: $color-primary;
+              transition: stroke 0.3s ease-in-out;
+            }
           }
         }
       }
@@ -58,9 +72,11 @@
       color: inherit;
       transition: color 0.3s ease-in-out;
 
-      &:hover {
-        color: $color-primary;
-        transition: color 0.3s ease-in-out;
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: $color-primary;
+          transition: color 0.3s ease-in-out;
+        }
       }
     }
   }
