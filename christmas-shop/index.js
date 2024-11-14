@@ -129,3 +129,36 @@ document.addEventListener("DOMContentLoaded", () => {
   calculateSliderParams();
   updateButtons();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const timerElements = document.querySelectorAll(".timer-item__value");
+
+  function updateTimer() {
+    const now = new Date();
+    const nextYear = now.getUTCFullYear() + 1;
+    const newYear = new Date(Date.UTC(nextYear, 0, 1)); // Новый год в UTC
+    const timeDiff = newYear - now; // Разница в миллисекундах
+
+    if (timeDiff <= 0) {
+      // Если Новый год наступил
+      clearInterval(timerInterval);
+      timerElements.forEach((el) => (el.textContent = "0"));
+      return;
+    }
+
+    const seconds = Math.floor((timeDiff / 1000) % 60);
+    const minutes = Math.floor((timeDiff / 1000 / 60) % 60);
+    const hours = Math.floor((timeDiff / 1000 / 60 / 60) % 24);
+    const days = Math.floor(timeDiff / 1000 / 60 / 60 / 24);
+
+    // Обновляем значения в таймере
+    timerElements[0].textContent = days; // Дни
+    timerElements[1].textContent = hours; // Часы
+    timerElements[2].textContent = minutes; // Минуты
+    timerElements[3].textContent = seconds; // Секунды
+  }
+
+  // Запускаем обновление каждую секунду
+  updateTimer(); // Первое обновление сразу
+  const timerInterval = setInterval(updateTimer, 1000);
+});
