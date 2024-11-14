@@ -783,6 +783,40 @@ section {
   transform: rotate(-45deg) translateY(-6px);
 }
 
+.burger-content {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 98;
+  background-color: #FFFFFF;
+  margin-top: 64px;
+  transition: 0.4s ease-in-out;
+}
+.burger-content a {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto 8px;
+  padding: 12px 20px;
+  color: #181C29;
+  transition: color, 0.3s ease-in-out;
+}
+@media (hover: hover) and (pointer: fine) {
+  .burger-content a:hover {
+    color: #FF4646;
+    transition: color, 0.3s ease-in-out;
+  }
+}
+
+.burger-content.active {
+  left: 0;
+}
+
 .header {
   display: flex;
   align-items: center;
