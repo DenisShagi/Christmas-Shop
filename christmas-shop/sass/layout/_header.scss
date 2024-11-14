@@ -1,10 +1,14 @@
 .header {
   display: flex;
   align-items: center;
-    justify-content: space-between;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 12px 82px;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 12px 82px;
+
+  @media screen and (max-width: 1439px) {
+    padding: 12px 8px;
+  }
   &-logo {
     &__link {
       display: flex;
@@ -15,31 +19,9 @@
     }
   }
 
-  &-navigation {
-    &-list {
-      display: flex;
-      list-style: none;
-      gap: 8px;
-      padding-left: 0;
-    }
-    &__link {
-      padding: 12px 20px;
-      transition: color, background-color, 0.3s ease-in-out;
-
-      &__active {
-        border-radius: 12px;
-        color: $color-primary;
-        background-color: $color-primary-10;
-        transition: color, background-color, 0.3s ease-in-out;
-        cursor: not-allowed;
-      }
-
-      &:hover {
-        border-radius: 12px;
-        color: $color-primary;
-        background-color: $color-primary-10;
-        transition: color, background-color, 0.3s ease-in-out;
-      }
+  &-container {
+    @media screen and (max-width: 1439px) {
+      display: none;
     }
   }
 }
