@@ -64,7 +64,7 @@
   border-radius: 12px;
   transition: background-color 0.3s ease-in-out;
 
-  &__active {
+  &.active {
     background-color: $color-static-white-20;
     cursor: not-allowed;
   }

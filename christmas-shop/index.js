@@ -165,6 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const decorationList = document.querySelector(".decoration-list");
+  const tabs = document.querySelectorAll(".tab"); // Только для gifts.html
+  const isGiftsPage = !!document.querySelector(".gifts-pagination"); // Проверяем, есть ли раздел с табами
 
   // Функция для создания карточки
   function createCard({ name, description, category }) {
@@ -209,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "For Health": "./image/gift-for-health.png",
       "For Harmony": "./image/gift-for-harmony.png",
     };
-    return categoryImages[category] || ""; 
+    return categoryImages[category] || "./image/default-placeholder.png";
   }
 
   // Функция для получения класса по категории
@@ -222,13 +224,26 @@ document.addEventListener("DOMContentLoaded", () => {
     return categoryClasses[category] || "default";
   }
 
-  // Функция для перемешивания массива
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+  // Функция для отображения карточек
+  function displayCards(data, category = "all", limit = 16) {
+    decorationList.innerHTML = ""; // Очищаем список перед добавлением
+    let filteredData = data;
+
+    // Если категория "All", перемешиваем карточки
+    if (category === "all") {
+      filteredData = shuffleArray(data);
+    } else {
+      // Фильтруем товары по категории
+      filteredData = data.filter((item) => item.category === category);
     }
-    return array;
+
+    // Ограничиваем количество карточек
+    const itemsToDisplay = filteredData.slice(0, limit);
+
+    itemsToDisplay.forEach((item) => {
+      const card = createCard(item);
+      decorationList.appendChild(card);
+    });
   }
 
   // Загрузка JSON
@@ -240,16 +255,39 @@ document.addEventListener("DOMContentLoaded", () => {
       return response.json();
     })
     .then((data) => {
-      // Перемешиваем массив и берём первые 4 элемента
-      const randomGifts = shuffleArray(data).slice(0, 4);
+      if (isGiftsPage) {
+        // Логика для страницы gifts.html
+        displayCards(data, "all", 16); // Отображаем 16 случайных карточек для "All"
 
-      // Создаём карточки для 4 случайных объектов
-      randomGifts.forEach((item) => {
-        const card = createCard(item);
-        decorationList.appendChild(card);
-      });
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            // Убираем активный класс у всех кнопок
+            tabs.forEach((t) => t.classList.remove("active"));
+
+            // Добавляем активный класс текущей кнопке
+            tab.classList.add("active");
+
+            // Отображаем товары выбранной категории
+            const category = tab.getAttribute("data-category");
+            displayCards(data, category, 16);
+          });
+        });
+      } else {
+        // Логика для страницы index.html
+        const randomGifts = shuffleArray(data).slice(0, 4); // Берём 4 случайных карточки
+        displayCards(randomGifts, "all", 4); // Показываем карточки
+      }
     })
     .catch((error) => {
       console.error("Ошибка загрузки JSON:", error);
     });
+
+  // Функция для перемешивания массива
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
 });
