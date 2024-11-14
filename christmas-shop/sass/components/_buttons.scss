@@ -64,6 +64,11 @@
   border-radius: 12px;
   transition: background-color 0.3s ease-in-out;
 
+  &__active {
+    background-color: $color-static-white-20;
+    cursor: not-allowed;
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       background-color: $color-static-white-20;
@@ -71,8 +76,7 @@
     }
   }
 
-  &__active {
-    background-color: $color-static-white-20;
-    cursor: not-allowed;
+  @media screen and (max-width: 767px) {
+    padding: 12px 8px;
   }
 }
