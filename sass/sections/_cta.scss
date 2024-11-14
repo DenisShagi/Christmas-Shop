@@ -51,3 +51,13 @@
     }
   }
 }
+
+.question-mark {
+  display: inline;
+}
+
+@media screen and (max-width: 380px) {
+  .question-mark {
+    display: block;
+  }
+}
