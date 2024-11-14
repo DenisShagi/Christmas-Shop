@@ -6,7 +6,7 @@
   margin: 0 auto;
   padding: 12px 82px;
 
-  @media screen and (max-width: 1439px) {
+  @media screen and (max-width: 768px) {
     padding: 12px 8px;
   }
   &-logo {
@@ -20,7 +20,7 @@
   }
 
   &-container {
-    @media screen and (max-width: 1439px) {
+    @media screen and (max-width: 768px) {
       display: none;
     }
   }
