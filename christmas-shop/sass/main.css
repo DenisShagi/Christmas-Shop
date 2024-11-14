@@ -1005,6 +1005,13 @@ section {
     margin: 0 8px;
   }
 }
+@media screen and (max-width: 767px) {
+  .about-content {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+  }
+}
 .about-text {
   display: flex;
   flex-direction: column;
@@ -1014,7 +1021,13 @@ section {
 }
 @media screen and (max-width: 1439px) {
   .about-text {
-    padding: 60px 60px;
+    padding: 60px 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .about-text {
+    max-width: 100%;
+    text-align: left;
   }
 }
 .about .caption {
@@ -1026,6 +1039,12 @@ section {
   width: 50%;
   height: 100%;
   overflow: hidden;
+}
+@media screen and (max-width: 767px) {
+  .about-container {
+    width: 100%;
+    height: 528px;
+  }
 }
 .about-container__image {
   width: 100%;
@@ -1156,6 +1175,15 @@ section {
   bottom: 16px;
 }
 
+.question-mark {
+  display: inline;
+}
+
+@media screen and (max-width: 380px) {
+  .question-mark {
+    display: block;
+  }
+}
 .gifts {
   background-image: url("../image/bg-garland.png");
   background-color: #FF4646;
