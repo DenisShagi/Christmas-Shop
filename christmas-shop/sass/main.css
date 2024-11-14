@@ -746,7 +746,7 @@ section {
   }
 }
 
-@media screen and (min-width: 1439px) {
+@media screen and (min-width: 769px) {
   .burger-container {
     display: none;
   }
@@ -791,7 +791,7 @@ section {
   margin: 0 auto;
   padding: 12px 82px;
 }
-@media screen and (max-width: 1439px) {
+@media screen and (max-width: 768px) {
   .header {
     padding: 12px 8px;
   }
@@ -803,7 +803,7 @@ section {
   gap: 8px;
   color: inherit;
 }
-@media screen and (max-width: 1439px) {
+@media screen and (max-width: 768px) {
   .header-container {
     display: none;
   }
