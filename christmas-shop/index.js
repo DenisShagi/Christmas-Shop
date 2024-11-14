@@ -162,3 +162,94 @@ document.addEventListener("DOMContentLoaded", () => {
   updateTimer(); // Первое обновление сразу
   const timerInterval = setInterval(updateTimer, 1000);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const decorationList = document.querySelector(".decoration-list");
+
+  // Функция для создания карточки
+  function createCard({ name, description, category }) {
+    const card = document.createElement("article");
+    card.classList.add("decoration-item");
+
+    const figure = document.createElement("figure");
+    figure.classList.add("decoration-item-card");
+
+    const img = document.createElement("img");
+    img.classList.add("decoration-item__image");
+    img.src = getCategoryImage(category);
+    img.alt = description;
+
+    const figcaption = document.createElement("figcaption");
+    figcaption.classList.add("decoration-item-card-container");
+
+    const header = document.createElement("header");
+    header.classList.add("decoration-item-card-content");
+
+    const h4 = document.createElement("h4");
+    h4.textContent = category.toUpperCase();
+    h4.classList.add(getCategoryClass(category));
+
+    const h3 = document.createElement("h3");
+    h3.textContent = name;
+
+    header.appendChild(h4);
+    header.appendChild(h3);
+    figcaption.appendChild(header);
+    figure.appendChild(img);
+    figure.appendChild(figcaption);
+    card.appendChild(figure);
+
+    return card;
+  }
+
+  // Функция для получения изображения по категории
+  function getCategoryImage(category) {
+    const categoryImages = {
+      "For Work": "./image/gift-for-work.png",
+      "For Health": "./image/gift-for-health.png",
+      "For Harmony": "./image/gift-for-harmony.png",
+    };
+    return categoryImages[category] || ""; 
+  }
+
+  // Функция для получения класса по категории
+  function getCategoryClass(category) {
+    const categoryClasses = {
+      "For Work": "work",
+      "For Health": "health",
+      "For Harmony": "harmony",
+    };
+    return categoryClasses[category] || "default";
+  }
+
+  // Функция для перемешивания массива
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  // Загрузка JSON
+  fetch("./gifts.json")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Перемешиваем массив и берём первые 4 элемента
+      const randomGifts = shuffleArray(data).slice(0, 4);
+
+      // Создаём карточки для 4 случайных объектов
+      randomGifts.forEach((item) => {
+        const card = createCard(item);
+        decorationList.appendChild(card);
+      });
+    })
+    .catch((error) => {
+      console.error("Ошибка загрузки JSON:", error);
+    });
+});
