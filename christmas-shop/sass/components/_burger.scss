@@ -61,7 +61,9 @@
     padding: 12px 20px;
     color: $color-dark;
     transition: color, .3s ease-in-out;
-    
+    &.active {
+      color: $color-primary;
+    }
     @media (hover: hover) and (pointer: fine) {
       &:hover {
         color: $color-primary;
@@ -69,6 +71,7 @@
       }
 
     }
+
   }
 }
 

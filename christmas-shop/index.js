@@ -3,20 +3,24 @@ window.onload = function () {
   const burgerMenu = document.querySelector(".burger-content");
   const body = document.body;
 
+  // Функция для открытия/закрытия меню
   function toggleMenu() {
     const isActive = burgerMenu.classList.toggle("active");
     burgerBtn.classList.toggle("burger-menu__active");
-    body.style.overflow = isActive ? "hidden" : "";
+    body.style.overflow = isActive ? "hidden" : ""; // Блокируем/разблокируем скролл
   }
 
+  // Функция для закрытия меню с плавным скрытием
   function closeMenu() {
-    burgerMenu.classList.remove("active");
+    burgerMenu.classList.remove("active"); // Убираем класс, чтобы меню ушло вправо
     burgerBtn.classList.remove("burger-menu__active");
-    body.style.overflow = "";
+    body.style.overflow = ""; // Разрешаем скролл
   }
 
+  // Открытие/закрытие меню при нажатии на кнопку
   burgerBtn.addEventListener("click", toggleMenu);
 
+  // Закрытие меню при клике вне области меню
   document.addEventListener("click", function (event) {
     const isClickInsideMenu = burgerMenu.contains(event.target);
     const isClickOnButton = burgerBtn.contains(event.target);
@@ -26,23 +30,35 @@ window.onload = function () {
     }
   });
 
+  // Обработка кликов по ссылкам в меню
   burgerMenu.addEventListener("click", function (event) {
-    if (event.target.tagName === "A") {
-      event.preventDefault();
-      const targetId = event.target.getAttribute("href");
-      const targetElement = document.querySelector(targetId);
+    const target = event.target;
 
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
+    if (target.tagName === "A") {
+      const href = target.getAttribute("href");
 
-        closeMenu();
+      // Если ссылка якорная или внешняя, в любом случае закрываем меню
+      if (href.startsWith("#")) {
+        event.preventDefault(); // Отключаем стандартное поведение для якорных ссылок
+        const targetElement = document.querySelector(href);
+
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
       }
+
+      // Закрываем меню плавно после клика
+      closeMenu();
+    } else {
+      // Если это не интерактивная ссылка, просто закрываем меню
+      closeMenu();
     }
   });
 
+  // Закрытие меню при изменении размера окна
   window.addEventListener("resize", function () {
     if (burgerMenu.classList.contains("active")) {
       closeMenu();
