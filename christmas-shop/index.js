@@ -291,3 +291,38 @@ document.addEventListener("DOMContentLoaded", () => {
     return array;
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const upButton = document.querySelector(".up-button");
+
+  // Функция для показа/скрытия кнопки при прокрутке
+  function toggleUpButton() {
+    if (window.innerWidth <= 768) { // Проверяем ширину экрана
+      if (window.scrollY > 200) { // Появление кнопки после прокрутки вниз
+        upButton.classList.add("show");
+        upButton.classList.remove("hide");
+      } else {
+        upButton.classList.remove("show");
+        upButton.classList.add("hide");
+      }
+    } else {
+      // Скрываем кнопку на экранах шире 768px
+      upButton.classList.remove("show");
+      upButton.classList.add("hide");
+    }
+  }
+
+  // Прокрутка наверх при клике на кнопку
+  upButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+  // Отслеживаем прокрутку и изменяем состояние кнопки
+  window.addEventListener("scroll", toggleUpButton);
+
+  // Проверяем состояние кнопки при загрузке страницы
+  toggleUpButton();
+});
