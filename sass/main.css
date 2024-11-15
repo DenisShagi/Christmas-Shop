@@ -567,7 +567,7 @@ template {
   display: none;
 }
 
-.slider-text, .caption, .action-small, .action-large, p, .header__text, .btn-text, h4, h3, h2, h1 {
+.superpower-value, .slider-text, .caption, .action-small, .action-large, p, .header__text, .btn-text, h4, h3, h2, h1 {
   font-family: "Montserrat", sans-serif;
 }
 
@@ -907,10 +907,6 @@ section {
   row-gap: 8px;
 }
 
-.modal-category {
-  color: blue;
-}
-
 .modal-signature {
   padding: 20px 0 8px;
   text-align: start;
@@ -944,6 +940,13 @@ section {
   align-items: center;
   -moz-column-gap: 8px;
        column-gap: 8px;
+}
+
+.superpower-value {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 148%;
+  letter-spacing: 0rem;
 }
 
 .header {

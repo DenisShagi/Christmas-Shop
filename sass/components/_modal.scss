@@ -48,9 +48,6 @@
   }
 }
 
-.modal-category {
-  color: blue;
-}
 
 .modal-signature {
   padding: 20px 0 8px;
@@ -83,4 +80,13 @@
   display: flex;
   align-items: center;
   column-gap: 8px;
+}
+
+.superpower-value {
+  @include heading-style(
+    $font-size: 16px,
+    $font-weight: 400,
+    $line-height: 148%,
+    $letter-spacing: 0rem
+  );
 }
