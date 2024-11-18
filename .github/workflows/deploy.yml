@@ -1,0 +1,42 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - gh-pages
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Шаг 1: Клонируем репозиторий
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Шаг 2: Проверка наличия папки и перемещение файлов
+      - name: Copy files from 'christmas-shop'
+        run: |
+          if [ -d "christmas-shop" ]; then
+            cp -r christmas-shop/* .
+            rm -rf christmas-shop
+          else
+            echo "Directory 'christmas-shop' does not exist!"
+            exit 1
+          fi
+
+      # Шаг 3: Настройка Git
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "actions@github.com"
+
+        # Шаг 4: Коммит и пуш изменений
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
+          git add .
+          git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
+          git push origin gh-pages --force
