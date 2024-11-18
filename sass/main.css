@@ -748,14 +748,14 @@ section {
 
 .up-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
+  bottom: 8px;
+  right: 8px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background-color: rgba(24, 28, 41, 0.8);
+  background-color: #FFFFFF;
+  border: 1px solid #FF4646;
   color: #FFFFFF;
-  border: none;
   display: none;
   justify-content: center;
   align-items: center;
