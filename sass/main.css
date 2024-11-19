@@ -672,6 +672,11 @@ section {
   padding: 60px 0;
 }
 
+main {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
 .btn {
   max-width: 242px;
   height: 56px;
