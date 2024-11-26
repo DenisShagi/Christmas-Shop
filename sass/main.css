@@ -1325,6 +1325,8 @@ main {
   flex-direction: column;
   row-gap: 20px;
   color: #FFFFFF;
+  text-align: center;
+  padding: 0 8px;
 }
 
 .countdown-timer {
