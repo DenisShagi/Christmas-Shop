@@ -314,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Функция для отображения карточек
-  function displayCards(data, category = "all", limit = 16) {
+  function displayCards(data, category = "all", limit = 12) {
     decorationList.innerHTML = ""; // Очищаем список перед добавлением
     let filteredData = data;
 
@@ -346,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((data) => {
       if (isGiftsPage) {
         // Логика для страницы gifts.html
-        displayCards(data, "all", 16); // Отображаем 16 случайных карточек для "All"
+        displayCards(data, "all", 12); // Отображаем 16 случайных карточек для "All"
 
         tabs.forEach((tab) => {
           tab.addEventListener("click", () => {
