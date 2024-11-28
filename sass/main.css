@@ -1004,6 +1004,13 @@ main {
   transition: color, background-color, 0.3s ease-in-out;
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .header-navigation__link:hover {
+    background-color: transparent;
+    color: inherit;
+    transition: none;
+  }
+}
 .slider {
   background-image: url("../image/bg-snow.png");
   background-color: #FF4646;
