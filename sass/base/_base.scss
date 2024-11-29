@@ -10,3 +10,7 @@ main {
   max-width: 1440px;
   margin: 0 auto;
 }
+.block-scroll {
+  overflow: hidden;
+  z-index: 9999;
+}

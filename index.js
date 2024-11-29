@@ -249,6 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Добавляем обработчик закрытия модального окна
   modalClose.addEventListener("click", closeModal);
   modalOverlay.addEventListener("click", (event) => {
+    document.body.classList.remove("block-scroll");
     if (event.target === modalOverlay) {
       closeModal();
     }
@@ -288,7 +289,10 @@ document.addEventListener("DOMContentLoaded", () => {
     card.appendChild(figure);
 
     // Добавляем обработчик клика для открытия модального окна
-    card.addEventListener("click", () => openModal(giftData));
+    card.addEventListener("click", () => {
+      openModal(giftData)
+      document.body.classList.add("block-scroll");
+    });
 
     return card;
   }

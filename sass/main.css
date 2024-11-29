@@ -677,6 +677,11 @@ main {
   margin: 0 auto;
 }
 
+.block-scroll {
+  overflow: hidden;
+  z-index: 9999;
+}
+
 .btn {
   max-width: 242px;
   height: 56px;
