@@ -290,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Добавляем обработчик клика для открытия модального окна
     card.addEventListener("click", () => {
-      openModal(giftData)
+      openModal(giftData);
       document.body.classList.add("block-scroll");
     });
 
@@ -325,6 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Если категория "All", перемешиваем карточки
     if (category === "all") {
       filteredData = shuffleArray(data);
+      
     } else {
       // Фильтруем товары по категории
       filteredData = data.filter((item) => item.category === category);
@@ -362,7 +363,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Отображаем товары выбранной категории
             const category = tab.getAttribute("data-category");
-            displayCards(data, category, 16);
+            if (category == "all") {
+              displayCards(data, category, 36);
+            } else {
+              displayCards(data, category, 12);
+            }
           });
         });
       } else {
@@ -423,4 +428,3 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleUpButton();
   }
 });
-
