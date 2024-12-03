@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
       totalWidth = sliderTrack.scrollWidth;
       visibleWidth =
         sliderContainer.offsetWidth -
-        parseInt(getComputedStyle(sliderContainer).paddingLeft); // Учитываем padding-left
+        parseInt(getComputedStyle(sliderContainer).paddingLeft, 10); // Учитываем padding-left
       maxClicks = window.innerWidth >= 768 ? 4 : 7; // Количество шагов
       step = Math.ceil(
         (totalWidth - visibleWidth + edgePadding) / (maxClicks - 1)
@@ -98,16 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Прокрутка слайдера
-    function scrollSlider(direction) {
-      if (direction === "left" && !btnLeft.classList.contains("disabled")) {
-        currentIndex--;
-      } else if (
-        direction === "right" &&
-        !btnRight.classList.contains("disabled")
-      ) {
-        currentIndex++;
-      }
-
+    function scrollSlider() {
       const maxScroll = totalWidth - visibleWidth + edgePadding; // Максимальная прокрутка
       const scrollAmount = Math.min(currentIndex * step, maxScroll);
 
@@ -115,25 +106,42 @@ document.addEventListener("DOMContentLoaded", () => {
       updateButtons();
     }
 
+    // Сброс слайдера в начальное положение
+    function resetSlider() {
+      currentIndex = 0; // Возвращаемся к первому шагу
+      sliderTrack.style.transform = "translateX(0px)";
+      updateButtons();
+    }
+
     // Обработчики событий кнопок
-    btnLeft.addEventListener("click", () => scrollSlider("left"));
-    btnRight.addEventListener("click", () => scrollSlider("right"));
+    btnLeft.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        scrollSlider();
+      }
+    });
+    btnRight.addEventListener("click", () => {
+      if (currentIndex < maxClicks - 1) {
+        currentIndex++;
+        scrollSlider();
+      }
+    });
 
     // Обновление при изменении размера окна
     window.addEventListener("resize", () => {
       calculateSliderParams();
-      currentIndex = Math.min(currentIndex, maxClicks - 1); // Убедимся, что индекс не вышел за пределы
-      scrollSlider(); // Применяем прокрутку
+      resetSlider(); // Возвращаем слайдер в начальное положение
     });
 
     // Инициализация
     calculateSliderParams();
-    updateButtons();
+    resetSlider(); // Убедимся, что слайдер начинается с нуля
   } else {
     // Если слайдер отсутствует, ничего не делаем
     console.info("Слайдер отсутствует на этой странице.");
   }
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const timerElements = document.querySelectorAll(".timer-item__value");
