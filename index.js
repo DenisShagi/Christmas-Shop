@@ -329,19 +329,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function displayCards(data, category = "all", limit = 36) {
     decorationList.innerHTML = ""; // Очищаем список перед добавлением
     let filteredData = data;
-
-    // Если категория "All", перемешиваем карточки
-    if (category === "all") {
-      filteredData = shuffleArray(data);
-      
-    } else {
-      // Фильтруем товары по категории
+  
+    if (category !== "all") {
+      // Фильтруем товары по категории, если выбрана не "all"
       filteredData = data.filter((item) => item.category === category);
     }
-
+  
     // Ограничиваем количество карточек
     const itemsToDisplay = filteredData.slice(0, limit);
-
+  
     itemsToDisplay.forEach((item) => {
       const card = createCard(item);
       decorationList.appendChild(card);
@@ -350,43 +346,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Загрузка JSON
   fetch("./gifts.json")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      if (isGiftsPage) {
-        // Логика для страницы gifts.html
-        displayCards(data, "all", 36); // Отображаем 36 случайных карточек для "All"
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    if (isGiftsPage) {
+      // Логика для страницы gifts.html
+      displayCards(data, "all", 36); // Отображаем все 36 карточек для "all"
 
-        tabs.forEach((tab) => {
-          tab.addEventListener("click", () => {
-            // Убираем активный класс у всех кнопок
-            tabs.forEach((t) => t.classList.remove("active"));
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          // Убираем активный класс у всех кнопок
+          tabs.forEach((t) => t.classList.remove("active"));
 
-            // Добавляем активный класс текущей кнопке
-            tab.classList.add("active");
+          // Добавляем активный класс текущей кнопке
+          tab.classList.add("active");
 
-            // Отображаем товары выбранной категории
-            const category = tab.getAttribute("data-category");
-            if (category == "all") {
-              displayCards(data, category, 36);
-            } else {
-              displayCards(data, category, 12);
-            }
-          });
+          // Отображаем товары выбранной категории
+          const category = tab.getAttribute("data-category");
+          const limit = category === "all" ? 36 : 12; // 36 для "all", 12 для других
+          displayCards(data, category, limit);
         });
-      } else {
-        // Логика для страницы index.html
-        const randomGifts = shuffleArray(data).slice(0, 4); // Берём 4 случайных карточки
-        displayCards(randomGifts, "all", 4); // Показываем карточки
-      }
-    })
-    .catch((error) => {
-      console.error("Ошибка загрузки JSON:", error);
-    });
+      });
+    } else {
+      // Логика для страницы index.html
+      const randomGifts = shuffleArray(data).slice(0, 4); // Берём 4 случайных карточки
+      displayCards(randomGifts, "all", 4); // Показываем карточки
+    }
+  })
+  .catch((error) => {
+    console.error("Ошибка загрузки JSON:", error);
+  });
 
   // Функция для перемешивания массива
   function shuffleArray(array) {
